@@ -1,5 +1,5 @@
 {
-  "name": "yes-chef-admin-app",
+  "name": "yeschef-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
