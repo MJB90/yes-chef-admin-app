@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RecipeService from '../services/RecipeService';
 
 class ListRecipeComponent extends Component {
     constructor(props) {
@@ -7,6 +8,14 @@ class ListRecipeComponent extends Component {
         this.state ={
             recipes: []
         }
+    }
+    //componentdidmount is best place to call api
+    componentDidMount(){
+        RecipeService.getRecipes().then((res)=> {
+            this.setState({recipes: res.data});
+        });
+
+
     }
 
     render() {
@@ -23,14 +32,14 @@ class ListRecipeComponent extends Component {
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
                             {
                                 this.state.recipes.map(
                                     recipe =>
                                     <tr key = {recipe.id}>
-                                        <td>{recipe.name}</td>
-                                        <td>{recipe.description}</td>  
+                                        <td>{recipe.recipeName}</td>
+                                        <td>{recipe.recipeUrl}</td>  
                                     </tr>
 
 
