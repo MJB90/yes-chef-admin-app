@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: orangered;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.footer{
+  position:sticky;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: orangered;
+  text-align: center;
+  color: rgb(255, 255, 255);
 }

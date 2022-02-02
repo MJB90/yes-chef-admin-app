@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useNavigate } from 'react-router-dom';
 import RecipeService from '../services/RecipeService';
 
 class ListRecipeComponent extends Component {
@@ -8,14 +9,21 @@ class ListRecipeComponent extends Component {
         this.state ={
             recipes: []
         }
+        this.createRecipe = this.createRecipe.bind(this);
     }
     //componentdidmount is best place to call api
     componentDidMount(){
+        
         RecipeService.getRecipes().then((res)=> {
             this.setState({recipes: res.data});
         });
 
 
+    }
+    
+    createRecipe(){
+        
+        this.props.history.push('/createRecipe');
     }
 
     render() {
@@ -23,12 +31,16 @@ class ListRecipeComponent extends Component {
             <div>
                 <h2 className ="text-center">Recipe List</h2>
                 <div className = "row">
+                    <button className="btn btn-primary" onClick={this.createRecipe}>Create New Recipe</button>
+                </div>
+                <div className = "row">
                     <table className = "table table-striped table-bordered">
 
                         <thead>
                             <tr>
                                 <th>Recipe Name</th>
-                                <th>Recipe Description</th> 
+                                <th>Url</th>
+                                <th>Ratings</th> 
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -39,7 +51,8 @@ class ListRecipeComponent extends Component {
                                     recipe =>
                                     <tr key = {recipe.id}>
                                         <td>{recipe.recipeName}</td>
-                                        <td>{recipe.recipeUrl}</td>  
+                                        <td>{recipe.recipeUrl}</td>
+                                        <td>{recipe.ratings}</td>  
                                     </tr>
 
 
