@@ -7,30 +7,30 @@ class CreateRecipeComponent extends Component {
         super(props)
 
         this.state = {
-            recipeName: '',
-            recipeUrl: '',
-            ratings: 0
+            name: '',
+            courseType: '',
+            difficulty: ''
         }
 
         this.changeRecipeNameHandler = this.changeRecipeNameHandler.bind(this);
-        this.changeRecipeUrlHandler = this.changeRecipeUrlHandler.bind(this);
-        this.changeRatingsHandler = this.changeRatingsHandler.bind(this);
+        this.changeCourseTypeHandler = this.changeCourseTypeHandler.bind(this);
+        this.changeDifficultyHandler = this.changeDifficultyHandler.bind(this);
         this.saveRecipe = this.saveRecipe.bind(this);
     }
     changeRecipeNameHandler = (event) => {
-        this.setState({recipeName: event.target.value});
+        this.setState({name: event.target.value});
     }
-    changeRecipeUrlHandler = (event) => {
-        this.setState({recipeUrl: event.target.value});
+    changeCourseTypeHandler = (event) => {
+        this.setState({courseType: event.target.value});
     }
-    changeRatingsHandler = (event) => {
-        this.setState({ratings: event.target.value});
+    changeDifficultyHandler = (event) => {
+        this.setState({difficulty: event.target.value});
     }
 
     saveRecipe = (r) =>{
         r.preventDefault();
 
-        let recipe = {recipeName: this.state.recipeName, recipeUrl: this.state.recipeUrl, ratings: this.state.ratings};
+        let recipe = {name: this.state.name, courseType: this.state.courseType, difficulty: this.state.difficulty};
         console.log('recipe =>' + JSON.stringify(recipe));
 
         RecipeService.createRecipe(recipe);
@@ -51,18 +51,18 @@ class CreateRecipeComponent extends Component {
                                     <form>
                                         <div className = "form-group">
                                             <label>Recipe Name: </label>
-                                            <input placeholder="Recipe Name" name="recipeName" className="form-control"
-                                                value={this.state.recipeName} onChange={this.changeRecipeNameHandler}/>
+                                            <input placeholder="Recipe Name" name="name" className="form-control"
+                                                value={this.state.name} onChange={this.changeRecipeNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label>Recipe Url: </label>
-                                            <input placeholder="Recipe Url" name="recipeUrl" className="form-control"
-                                                value={this.state.recipeUrl} onChange={this.changeRecipeUrlHandler}/>
+                                            <label>Course Type: </label>
+                                            <input placeholder="Course Type" name="courseType" className="form-control"
+                                                value={this.state.courseType} onChange={this.changeCourseTypeHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label>Ratings: </label>
-                                            <input placeholder="Ratings" name="ratings" className="form-control"
-                                                value={this.state.ratings} onChange={this.changeRatingsHandler}/>
+                                            <label>Difficulty </label>
+                                            <input placeholder="difficulty" name="difficulty" className="form-control"
+                                                value={this.state.difficulty} onChange={this.changeDifficultyHandler}/>
                                         </div>
 
                                         <button className ="btn btn-success" onClick={this.saveRecipe}>Create</button>

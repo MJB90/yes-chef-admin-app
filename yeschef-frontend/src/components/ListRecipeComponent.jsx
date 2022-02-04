@@ -39,8 +39,8 @@ class ListRecipeComponent extends Component {
                         <thead>
                             <tr>
                                 <th>Recipe Name</th>
-                                <th>Url</th>
-                                <th>Ratings</th> 
+                                <th>Course Type</th>
+                                <th>Difficulty</th> 
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -50,9 +50,9 @@ class ListRecipeComponent extends Component {
                                 this.state.recipes.map(
                                     recipe =>
                                     <tr key = {recipe.id}>
-                                        <td>{recipe.recipeName}</td>
-                                        <td>{recipe.recipeUrl}</td>
-                                        <td>{recipe.ratings}</td>  
+                                        <td>{recipe.name}</td>
+                                        <td>{recipe.courseType}</td>
+                                        <td>{recipe.difficulty}</td>  
                                     </tr>
 
 
