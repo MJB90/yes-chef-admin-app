@@ -1,14 +1,13 @@
-import axios from 'axios';
-import React, { useState, Component, useEffect, useCallback } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import RecipeContainer from './RecipeContainer';
-import { useNavigate } from 'react-router-dom';
-import RecipeService from '../services/RecipeService';
 
 function ListRecipeComponent () {
        
     const [recipes, setRecipes] = useState( [] );
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    
 
     const fetchAllRecipesHandler = useCallback (async () => {
         setIsLoading(true);
@@ -27,7 +26,8 @@ function ListRecipeComponent () {
                     id: recipeData.id,
                     name: recipeData.name,
                     courseType: recipeData.courseType,
-                    difficulty: recipeData.difficulty
+                    difficulty: recipeData.difficulty,
+                    imageUrl: recipeData.imageUrl
                 };
             });
 

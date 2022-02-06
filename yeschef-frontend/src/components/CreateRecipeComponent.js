@@ -7,6 +7,7 @@ function CreateRecipeComponent (props) {
     const [name, setName] = useState('');
     const [courseType, setCourseType] = useState('');
     const [difficulty, setDifficulty] = useState('');
+    
    
     const changeRecipeNameHandler = (event) => {
         setName(event.target.value);
