@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Recipe from './Recipe';
+import RecipeNameCard from './RecipeNameCard';
 import classes from './RecipeContainer.module.css';
 // makes an array on many Recipe Components
 //purpose of this component is to map ALL the necessary Recipe components and put them into an Array of Recipes 
@@ -10,7 +10,7 @@ const RecipeContainer = (props) => {
   return (
     <ul className={classes['recipe-container']}>
       {props.recipes.map((recipe) => (
-        <Recipe
+        <RecipeNameCard
           key={recipe.id}
           name={recipe.name}
           courseType={recipe.courseType}
