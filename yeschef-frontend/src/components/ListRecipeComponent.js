@@ -25,7 +25,7 @@ function ListRecipeComponent () {
                     id: recipeData.id,
                     name: recipeData.name,
                     description: recipeData.description,
-                    imageUrl: recipeData.imageUrl,
+                    imageURL: recipeData.imageURL,
                     cuisineType: recipeData.cuisineType,
                     courseType: recipeData.courseType,
                     technique: recipeData.technique,

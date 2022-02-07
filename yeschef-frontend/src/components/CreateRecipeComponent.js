@@ -1,12 +1,14 @@
 import React, { useState,Component } from 'react';
 
 import RecipeService from '../services/RecipeService';
+import IngredientForm from './IngredientForm';
+import PreparationStepsForm from './PreparationStepsForm';
 
 function CreateRecipeComponent (props) {
  
     const [name, setName] = useState('');
     const [courseType, setCourseType] = useState('');
-    const [difficulty, setDifficulty] = useState('');
+    const [description, setDescription] = useState('');
     
    
     const changeRecipeNameHandler = (event) => {
@@ -15,21 +17,21 @@ function CreateRecipeComponent (props) {
     const changeCourseTypeHandler = (event) => {
         setCourseType(event.target.value);
     }
-    const changeDifficultyHandler = (event) => {
-        setDifficulty(event.target.value);
+    const changeDescriptionHandler = (event) => {
+        setDescription(event.target.value);
     }
 
-    const saveRecipe = (r) =>{
+    const saveRecipe = (r) => {
         r.preventDefault(); //prevents another HTTP request after form is submitted
         const recipe ={
             name : name,
             courseType : courseType,
-            difficulty : difficulty
+            description : description
         }
 
         //props.setRecipes([recipe, ...props.recipes])  
         console.log(recipe);
-        RecipeService.createRecipe(recipe);
+        //RecipeService.createRecipe(recipe);
 
     }
 
@@ -39,10 +41,10 @@ function CreateRecipeComponent (props) {
             <div>
                 <div className="container">
                         <div className = "row">
-                            <div className = "card cik-md-6 offset-md-3 offset-md-3">
+                            
                                 <h3 className="text-center">Create New Recipe Form</h3>
                                 <div className = "card-body">
-                                    <form>
+                                    <form onsubmit = {saveRecipe}>
                                         <div className = "form-group">
                                             <label>Recipe Name: </label>
                                             <input placeholder="Recipe Name" name="name" className="form-control"
@@ -54,14 +56,16 @@ function CreateRecipeComponent (props) {
                                                 value={courseType} onChange={changeCourseTypeHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label>Difficulty </label>
-                                            <input placeholder="difficulty" name="difficulty" className="form-control"
-                                                value={difficulty} onChange={changeDifficultyHandler}/>
+                                            <label>Description </label>
+                                            <input placeholder="description" name="description" className="form-control"
+                                                value={description} onChange={changeDescriptionHandler}/>
                                         </div>
-                                        <button className ="btn btn-success" onClick={saveRecipe}>Create</button>                                       
+                                        <IngredientForm/>
+                                        <PreparationStepsForm/>
+                                        <button className ="btn btn-success" type="submit">Save</button>                                       
                                     </form>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
             </div>

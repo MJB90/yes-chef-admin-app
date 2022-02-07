@@ -4,6 +4,8 @@ import ListRecipeComponent from './components/ListRecipeComponent';
 import CreateRecipeComponent from './components/CreateRecipeComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
+import IngredientForm from './components/IngredientForm';
+import PreparationStepsForm from './components/PreparationStepsForm';
 
 function App() {
   return (
@@ -11,11 +13,12 @@ function App() {
         <HeaderComponent/>
           <div className="container">
             <Routes>
-              
+              <Route path ="/ingredientForm" element={<IngredientForm/>}/>
               <Route path = "/" element={<ListRecipeComponent />}/> 
               <Route path = "/recipes" element={<ListRecipeComponent />}/>
               <Route path = "/createRecipe" element={<CreateRecipeComponent />}/>
-              
+              <Route path = "/preparationStepsForm" element={<PreparationStepsForm/>}/>
+            
             </Routes>
           </div>
         <FooterComponent/>

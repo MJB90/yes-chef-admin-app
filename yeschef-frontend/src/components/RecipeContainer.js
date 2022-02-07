@@ -15,7 +15,7 @@ const RecipeContainer = (props) => {
           name={recipe.name}
           courseType={recipe.courseType}
           difficulty={recipe.difficulty}
-          imageUrl={recipe.imageUrl}
+          imageURL={recipe.imageURL}
         />
       ))}
     </ul>

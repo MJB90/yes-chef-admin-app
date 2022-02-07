@@ -17,6 +17,9 @@ class HeaderComponent extends Component {
                         <ul className = "nav navbar-nav">
                             <li className="active"><a href="/">Home</a></li>
                             <li className="active"><a href="/createRecipe">Create New Recipe</a></li>
+                            <li className="active"><a href="/ingredientForm">IngredientForm</a></li>
+                            <li className="active"><a href="/preparationStepsForm">PreparationForm</a></li>
+                            
                         </ul>
                     </nav>
                 </header>
