@@ -33,6 +33,8 @@ function CreateRecipeComponent (props) {
 
     }
 
+    //option 
+
     return (
             <div>
                 <div className="container">
@@ -56,9 +58,7 @@ function CreateRecipeComponent (props) {
                                             <input placeholder="difficulty" name="difficulty" className="form-control"
                                                 value={difficulty} onChange={changeDifficultyHandler}/>
                                         </div>
-
-                                        <button className ="btn btn-success" onClick={saveRecipe}>Create</button>
-                                        
+                                        <button className ="btn btn-success" onClick={saveRecipe}>Create</button>                                       
                                     </form>
                                 </div>
                             </div>

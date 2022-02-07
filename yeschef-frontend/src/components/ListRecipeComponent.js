@@ -28,6 +28,7 @@ function ListRecipeComponent () {
                     imageUrl: recipeData.imageUrl,
                     cuisineType: recipeData.cuisineType,
                     courseType: recipeData.courseType,
+                    technique: recipeData.technique,
                     prepTime: recipeData.prepTime,
                     noOfServings: recipeData.noOfServings,
                     calories: recipeData.calories,

@@ -8,7 +8,10 @@ const RecipeNameCard = (props) => {
       
 
     <li className={classes.recipe}> 
-      <img src = {props.imageUrl[0]} alt="img alt text" style = {{width:150,height:150}} />    
+      <img src = {props.imageUrl[0]} onError={({currentTarget})=> {
+        currentTarget.onerror = null;
+        currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
+      }} alt="img alt text" style = {{width:150,height:150}} />    
       <h2>{props.name}</h2>
       <h3>{props.courseType}</h3>
       <p>{props.difficulty}</p>
