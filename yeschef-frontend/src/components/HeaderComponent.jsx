@@ -19,6 +19,7 @@ class HeaderComponent extends Component {
                             <li className="active"><a href="/createRecipe">Create New Recipe</a></li>
                             <li className="active"><a href="/ingredientForm">IngredientForm</a></li>
                             <li className="active"><a href="/preparationStepsForm">PreparationForm</a></li>
+                            <li className="active"><a href="/adminDashboard">Admin Dashboard</a></li>
                             
                         </ul>
                     </nav>
